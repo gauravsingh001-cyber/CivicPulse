@@ -143,6 +143,7 @@ export interface PointEvent {
   type:
     | "report_issue"
     | "issue_verified"
+    | "issue_in_progress"
     | "issue_resolved"
     | "verify_issue"
     | "comment"
