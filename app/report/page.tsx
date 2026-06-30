@@ -253,7 +253,7 @@ export default function ReportPage() {
         toast.success("Your report was saved locally. You can view it now!", {
           id: toastId,
         });
-        router.push(`/issues/${localId}`);
+        router.push(`/issue?id=${localId}`);
         return;
       }
 
@@ -276,7 +276,7 @@ export default function ReportPage() {
           id: toastId,
         });
       }
-      router.push(`/issues/${issueId}`);
+      router.push(`/issue?id=${issueId}`);
     } catch (error) {
       console.error(error);
       const message =

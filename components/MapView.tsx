@@ -187,7 +187,7 @@ export default function MapView({
             <span>✅ ${(issue.verifiedBy || []).length}</span>
           </div>
           <button
-            onclick="window.location.href='/issues/${issue.id}'"
+            onclick="window.location.href='/issue?id=${issue.id}'"
             style="
               background: linear-gradient(135deg, #4f8ef7, #7c3aed);
               color: white;

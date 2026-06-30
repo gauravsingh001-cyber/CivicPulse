@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useAuthContext } from "@/components/AuthProvider";
 import {
   getIssueById,
@@ -48,8 +48,8 @@ const STATUS_STEPS: IssueStatus[] = [
   "resolved",
 ];
 
-export default function IssueDetailPage() {
-  const params = useParams();
+function IssueDetailContent() {
+  const searchParams = useSearchParams();
   const router = useRouter();
   const { user, userProfile, refreshProfile } = useAuthContext();
   const [issue, setIssue] = useState<Issue | null>(null);
@@ -69,7 +69,7 @@ export default function IssueDetailPage() {
 
 
 
-  const issueId = params?.id as string;
+  const issueId = searchParams?.get("id") as string;
 
   useEffect(() => {
     if (!issueId || issueId === "undefined") {
@@ -1033,5 +1033,13 @@ ${user?.displayName || "A concerned citizen"}`;
         </div>
       )}
     </div>
+  );
+}
+
+export default function IssueDetailPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-[#0a0a0a] text-white">Loading...</div>}>
+      <IssueDetailContent />
+    </Suspense>
   );
 }

@@ -403,7 +403,7 @@ export default function DashboardPage() {
                 center={mapCenter}
                 zoom={mapZoom}
                 onIssueClick={(issue) => {
-                  router.push(`/issues/${issue.id}`);
+                  router.push(`/issue?id=${issue.id}`);
                 }}
                 onBoundsChange={setMapBounds}
               />
@@ -420,7 +420,7 @@ export default function DashboardPage() {
                 <IssueCard
                   key={`${issue.id}-${idx}`}
                   issue={issue}
-                  onClick={() => router.push(`/issues/${issue.id}`)}
+                  onClick={() => router.push(`/issue?id=${issue.id}`)}
                 />
               ))}
               {visibleIssues.length === 0 && !loading && (
@@ -487,7 +487,7 @@ export default function DashboardPage() {
               key={`${issue.id}-${idx}`}
               issue={issue}
               compact
-              onClick={() => router.push(`/issues/${issue.id}`)}
+              onClick={() => router.push(`/issue?id=${issue.id}`)}
             />
           ))}
 

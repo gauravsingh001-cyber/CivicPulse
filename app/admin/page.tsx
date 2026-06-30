@@ -425,7 +425,7 @@ export default function AdminPage() {
                       {/* Title & Category info */}
                       <td style={{ padding: "16px 20px", maxWidth: "300px" }}>
                         <div
-                          onClick={() => router.push(`/issues/${issue.id}`)}
+                          onClick={() => router.push(`/issue?id=${issue.id}`)}
                           style={{
                             fontWeight: 600,
                             color: "var(--text-primary)",
@@ -515,7 +515,7 @@ export default function AdminPage() {
                       {/* Change Status */}
                       <td style={{ padding: "16px 20px" }}>
                         <div
-                          onClick={() => router.push(`/issues/${issue.id}`)}
+                          onClick={() => router.push(`/issue?id=${issue.id}`)}
                           style={{
                             cursor: "pointer",
                             display: "inline-flex",
@@ -540,7 +540,7 @@ export default function AdminPage() {
                       <td style={{ padding: "16px 20px", textAlign: "right" }}>
                         <div style={{ display: "flex", justifyContent: "flex-end", gap: "6px" }}>
                           <button
-                            onClick={() => router.push(`/issues/${issue.id}`)}
+                            onClick={() => router.push(`/issue?id=${issue.id}`)}
                             className="btn btn-secondary btn-sm"
                             style={{ padding: "4px 10px" }}
                           >
